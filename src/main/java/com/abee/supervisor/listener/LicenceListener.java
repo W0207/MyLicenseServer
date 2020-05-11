@@ -23,7 +23,7 @@ public class LicenceListener implements ServletContextListener {
     /**
      * Depends on the fixed size of {@Link com.abee.supervisor.listener.Message}
      */
-    public static final int MESSAGE_SIZE = 14;
+    public static final int MESSAGE_SIZE = Message.SIZE;
 
     private DatagramPacket packet;
 

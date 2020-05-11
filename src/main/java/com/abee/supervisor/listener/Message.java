@@ -16,6 +16,8 @@ public class Message {
         FOR
     }
 
+    public static final int SIZE = 14;
+
     private Type type;
 
     private String serialNumber;
