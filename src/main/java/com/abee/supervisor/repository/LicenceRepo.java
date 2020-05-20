@@ -31,4 +31,10 @@ public interface LicenceRepo extends CrudRepository<Licence, String> {
             "where serial_number = :serialNumber " +
             "and current_number > 0")
     int subCurrentNumber(@Param("serialNumber") String serialNumber);
+
+    @Modifying
+    @Transactional(rollbackFor = Exception.class)
+    @Query(nativeQuery = true, value = "update licence " +
+            "set current_number = 0 ")
+    void resetAll();
 }

@@ -51,4 +51,16 @@ public class LicenceService {
 
         return null;
     }
+
+    public void resetAll() {
+        licenceRepo.resetAll();
+    }
+
+    public Licence getLicence(String serialNumber) {
+        if (licenceRepo.findById(serialNumber).isPresent()) {
+            return licenceRepo.findById(serialNumber).get();
+        } else {
+            return null;
+        }
+    }
 }

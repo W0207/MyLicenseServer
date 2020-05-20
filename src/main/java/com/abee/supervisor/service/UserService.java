@@ -24,9 +24,14 @@ public class UserService {
     public boolean activate(String ip, Integer port, String serialNumber) {
         User user = new User(ip, port, serialNumber, 1);
 
-        if (licenceRepo.addCurrentNumber(serialNumber) != 0) {
+        if (userRepo.findByUserPK(new UserPK(ip, port)) != null) {
             userRepo.save(user);
             return true;
+        } else {
+            if (licenceRepo.addCurrentNumber(serialNumber) != 0) {
+                userRepo.save(user);
+                return true;
+            }
         }
 
         return false;
@@ -44,5 +49,9 @@ public class UserService {
         }
 
         return false;
+    }
+
+    public void forbidAll() {
+        userRepo.forbidAll();
     }
 }
