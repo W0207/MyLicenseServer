@@ -1,0 +1,1 @@
+java -jar supervisor-1.0.0-RELEASE.jar
