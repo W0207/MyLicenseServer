@@ -20,9 +20,9 @@ public class OrganizationController {
     @PostMapping
     public String register(String username, String password) {
         if (organizationService.add(username, password)) {
-            return "Register succeed";
+            return "Registration successful.";
         } else {
-            return "Register failed.";
+            return "Registration failed.";
         }
     }
 }
